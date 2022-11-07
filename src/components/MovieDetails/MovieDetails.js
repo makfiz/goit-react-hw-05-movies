@@ -1,0 +1,33 @@
+import { BackBtn, ContentionWrapper, Poster, Description} from "./MovieDetails.styled"
+ export const MovieDetails = ({movie, location}) => {
+    if (!movie) return 
+    const {title, release_date, vote_average, overview, genres, poster_path } = movie
+    
+    let image =
+        poster_path === null
+          ? 'https://dummyimage.com/400x600/7d7d7d/fff.jpg&text=image+not+found'
+            : `https://image.tmdb.org/t/p/w400/${poster_path}`;
+
+    return (
+        <>
+            <BackBtn to={location.state?.from ?? "/"}>&#9668; Go back</BackBtn>
+            <ContentionWrapper>
+            <Poster src={image} alt={title} />
+            <Description>
+                <h1>{title} ({release_date.split('-')[0]})</h1>
+                <span>User Score: {Math.round(vote_average*10)}%</span>
+                <div>
+                    <h2>Overview</h2>
+                    <span>{overview}</span>
+                </div>
+                <div>
+                    <h3>Genres</h3>
+                    <span>{genres.map(g => `${g.name} `)}</span>
+                </div>
+            </Description>
+            </ContentionWrapper>
+            
+        </>
+    )
+}
+
