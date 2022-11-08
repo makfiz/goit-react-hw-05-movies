@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import { lazy} from "react";
+import { lazy, Suspense } from "react";
 
 // import Home from 'pages/Home'
 import SharedLayout  from "components/SharedLayout/SharedLayout";
@@ -11,6 +11,7 @@ import SharedLayout  from "components/SharedLayout/SharedLayout";
 const createAsyncComponent = (path) => lazy(() => import(path));
 
 const Movies = createAsyncComponent('../pages/Movies');
+// const Movies = createAsyncComponent('pages/Movies');
 const Home = createAsyncComponent('../pages/Home');
 const MovieDetails = createAsyncComponent('../pages/MovieDetails');
 const NotFound = createAsyncComponent('../pages/NotFound404');
@@ -20,7 +21,7 @@ const Reviews = createAsyncComponent('components/MovieDetails/Reviews/Reviews');
 export const App = () => {
   return (
     <>
-      
+      <Suspense fallback={<div>Loading...</div>}>
       <Routes>
         <Route path="/" element={<SharedLayout/>}>
         <Route index element={<Home/>}/>
@@ -32,7 +33,7 @@ export const App = () => {
         <Route path="*" element={<NotFound />}/>
         </Route>  
         </Routes>
-        
+        </Suspense>
     </>
   );
 };
