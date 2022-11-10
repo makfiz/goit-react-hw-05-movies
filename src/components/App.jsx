@@ -8,15 +8,14 @@ import SharedLayout  from "components/SharedLayout/SharedLayout";
 // import Reviews from 'components/MovieDetails/Reviews/Reviews'
 // import NotFound from "pages/NotFound404";
 
-const createAsyncComponent = (path) => lazy(() => import(path));
 
-const Movies = createAsyncComponent('../pages/Movies');
+const Movies = lazy(() => import('../pages/Movies'));
 // const Movies = createAsyncComponent('pages/Movies');
-const Home = createAsyncComponent('../pages/Home');
-const MovieDetails = createAsyncComponent('../pages/MovieDetails');
-const NotFound = createAsyncComponent('../pages/NotFound404');
-const Cast = createAsyncComponent('components/MovieDetails/Cast/Cast');
-const Reviews = createAsyncComponent('components/MovieDetails/Reviews/Reviews');
+const Home = lazy(() => import('../pages/Home'));
+const MovieDetails = lazy(() => import('../pages/MovieDetails'));
+const NotFound = lazy(() => import('../pages/NotFound404'));
+const Cast = lazy(() => import('components/MovieDetails/Cast/Cast'));
+const Reviews = lazy(() => import('components/MovieDetails/Reviews/Reviews'));
 
 export const App = () => {
   return (
