@@ -9,11 +9,11 @@ import SharedLayout  from "components/SharedLayout/SharedLayout";
 // import NotFound from "pages/NotFound404";
 
 
-const Movies = lazy(() => import('../pages/Movies'));
+const Movies = lazy(() => import('/pages/Movies'));
 // const Movies = createAsyncComponent('pages/Movies');
-const Home = lazy(() => import('../pages/Home'));
-const MovieDetails = lazy(() => import('../pages/MovieDetails'));
-const NotFound = lazy(() => import('../pages/NotFound404'));
+const Home = lazy(() => import('/pages/Home'));
+const MovieDetails = lazy(() => import('/pages/MovieDetails'));
+const NotFound = lazy(() => import('/pages/NotFound404'));
 const Cast = lazy(() => import('components/MovieDetails/Cast/Cast'));
 const Reviews = lazy(() => import('components/MovieDetails/Reviews/Reviews'));
 
