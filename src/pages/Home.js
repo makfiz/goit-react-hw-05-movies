@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"
-import { useLocation } from "react-router-dom";
 import Pagination from "components/Pagination/Pagination"
 
 import MoviesList from "components/MoviesList/MoviesList"
@@ -10,7 +9,7 @@ import { fetchTrendingMovies } from "ApiServise/api.themoviedb"
 const Home = () => {
     const [page, setPage] = useState(1);
     const [trMovies, setTrMovies] = useState([])
-    const location = useLocation()
+  
 
     useEffect(() => {
         const controller = new AbortController();
@@ -37,9 +36,10 @@ const Home = () => {
     return (
         <>
             <Pagination page={page} onChange={handleChange} />
-            <MoviesList Movies={trMovies} location={location} />
+            <MoviesList Movies={trMovies}  />
             <Pagination page={page} onChange={handleChange}/>
         </>
+        
     )
 }
 

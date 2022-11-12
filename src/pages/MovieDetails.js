@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams, Outlet, useLocation } from "react-router-dom";
 import { MovieDetails as Details }  from "components/MovieDetails/MovieDetails"
-import MoreDetails from "components/MovieDetails/MoreDetails/MoreDetails"
+
 import { fetchSearchMovieById } from "ApiServise/api.themoviedb";
 
 const MovieDetails = () => {
@@ -27,8 +27,7 @@ const MovieDetails = () => {
     return (
         
             <>
-            <Details movie={movieInfo} location={location}/>
-            <MoreDetails location={location}/>
+            <Details movie={movieInfo} location={location} />
             <div>
                 <Outlet/>
             </div>

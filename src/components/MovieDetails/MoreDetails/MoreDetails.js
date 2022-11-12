@@ -1,6 +1,8 @@
-import {HolderMoreDetails, StyledLinks} from "./MoreDetails.styled"
 
-const MoreDetails = ({location}) => {
+import { HolderMoreDetails, StyledLinks } from "./MoreDetails.styled"
+
+
+const MoreDetails = ({ location }) => {
     return (
         <HolderMoreDetails>
             <span>Additional information</span>

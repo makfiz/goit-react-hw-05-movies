@@ -1,6 +1,7 @@
 import { MoviesList as List, Poster, StyledLink, ListItem } from "./MoviesList.styled"
-
-const MoviesList = ({ Movies, location}) => {
+import {useLocation } from 'react-router-dom';
+const MoviesList = ({ Movies }) => {
+    const location = useLocation();
     return (
             <List>
                 {Movies.length > 0 && Movies.map(movie => {

@@ -1,5 +1,9 @@
-import { BackBtn, ContentionWrapper, Poster, Description} from "./MovieDetails.styled"
+import { BackBtn, ContentionWrapper, Poster, Description } from "./MovieDetails.styled"
+import MoreDetails from "components/MovieDetails/MoreDetails/MoreDetails"
+
  export const MovieDetails = ({movie, location}) => {
+ 
+    console.log("ya zarenderilsya")
     if (!movie) return 
     const {title, release_date, vote_average, overview, genres, poster_path } = movie
     
@@ -10,7 +14,7 @@ import { BackBtn, ContentionWrapper, Poster, Description} from "./MovieDetails.s
 
     return (
         <>
-            <BackBtn to={location.state?.from ?? "/"}>&#9668; Go back</BackBtn>
+            <BackBtn to={location?.state?.from ?? "/movies"}>&#9668; Go back</BackBtn>
             <ContentionWrapper>
             <Poster src={image} alt={title} />
             <Description>
@@ -26,7 +30,7 @@ import { BackBtn, ContentionWrapper, Poster, Description} from "./MovieDetails.s
                 </div>
             </Description>
             </ContentionWrapper>
-            
+            <MoreDetails location={location?.state?.from ?? "/movies"} />
         </>
     )
 }

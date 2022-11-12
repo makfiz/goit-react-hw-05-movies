@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import {useSearchParams, useLocation } from "react-router-dom"
+import {useSearchParams } from "react-router-dom"
 import {Suspense } from "react";
 
 import { fetchSearchMovie} from "ApiServise/api.themoviedb";
@@ -12,7 +12,7 @@ const Movies = () => {
     const [responseEmpty, setResponseEmpty] = useState(false)
     const [searchParams, setSearchParams] = useSearchParams()
     const searchedMovie = searchParams.get("query") ?? ""
-    const location = useLocation()
+    
     
 
     useEffect(() => {
@@ -48,7 +48,7 @@ const Movies = () => {
     return (
         <>   <Suspense fallback={<div>Loading subpage...</div>}>
             <Form onChange={queryHundler} searchedMovie={searchedMovie} responseEmpty={responseEmpty} />
-            <MoviesList Movies={movies} location={location} />
+            <MoviesList Movies={movies}/>
             {responseEmpty && <h1 style={{ textAlign: "center" }}>No results were found for {searchedMovie}</h1>}
             </Suspense>
         </>
