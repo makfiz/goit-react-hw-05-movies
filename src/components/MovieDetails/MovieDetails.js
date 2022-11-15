@@ -30,7 +30,7 @@ import MoreDetails from "components/MovieDetails/MoreDetails/MoreDetails"
                 </div>
             </Description>
             </ContentionWrapper>
-            <MoreDetails location={location?.state?.from ?? "/movies"} />
+            <MoreDetails location={location?.state?.from} />
         </>
     )
 }
